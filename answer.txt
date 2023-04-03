@@ -1,0 +1,7 @@
+Komunikat "new connection" został wypisany w konsoli dzięki użyciu metody console.log() w funkcji callback, 
+która jest przypisana do zdarzenia connection na obiekcie server.
+
+Funkcja ta zostanie wywołana za każdym razem, gdy nowe połączenie sieciowe zostanie nawiązane z serwerem, 
+a wtedy zostanie wydrukowany w konsoli tekst "new connection". Mechanizm wykorzystywany w tym przypadku to
+funkcja "callback", która jest przekazywana jako argument do innej funkcji (w tym przypadku do metody server.on()) i jest 
+wywoływana w momencie wystąpienia określonego zdarzenia (w tym przypadku zdarzenia connection).
