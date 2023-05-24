@@ -7,13 +7,15 @@ import {DataService} from "../../services/data.service";
   templateUrl: './blog-item-details.component.html',
   styleUrls: ['./blog-item-details.component.css']
 })
-export class BlogItemDetailsComponent implements OnInit{
+export class BlogItemDetailsComponent implements OnInit {
 
   public image: string = '';
   public text: string = '';
 
   constructor(private service: DataService, private route: ActivatedRoute) {
   }
+
+
   ngOnInit() {
     let id: string = '';
     this.route.paramMap
@@ -25,6 +27,6 @@ export class BlogItemDetailsComponent implements OnInit{
       this.image = res['image'];
       this.text = res['text'];
     });
-  }
 
+  }
 }
