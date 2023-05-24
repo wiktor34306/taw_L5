@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'blog-home',
   templateUrl: './blog-home.component.html',
   styleUrls: ['./blog-home.component.css']
 })
-export class BlogHomeComponent {
-  public filterText: string = ''
+export class BlogHomeComponent implements OnInit {
 
-  getName($event: string): void {
-    console.log('getName', $event)
-    this.filterText = $event;
+  public filterText: string = '';
+
+  constructor() {
   }
 
+  ngOnInit(): void {
+  }
+
+  getName($event: string): void {
+    this.filterText = $event;
+  }
 }

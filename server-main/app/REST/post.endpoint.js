@@ -10,14 +10,18 @@ const postEndpoint = (router) => {
         }
     });
 
-    router.get("/api/post/:id", async (request, response, next) => {
+    router.get('/api/posts/:id', async (request, response, next) => {
         try {
-            const id = request.params.id;
-
-            let result = await business.getPostManager().get(id);
-            response.status(200).send(result);
+            const postId = request.params.id;
+            let result = await business.getPostManager().get(postId);
+            if (result) {
+                response.status(200).send(result);
+            } else {
+                response.status(404).send('Post not found');
+            }
         } catch (error) {
             console.log(error);
+            response.status(500).send('Internal Server Error');
         }
     });
 
