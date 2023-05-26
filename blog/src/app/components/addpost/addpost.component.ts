@@ -1,29 +1,29 @@
-import { Component } from '@angular/core';
-import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
-import {DataService} from "../../services/data.service";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {DataService} from 'src/app/services/data.service';
 
 @Component({
   selector: 'addpost',
   templateUrl: './addpost.component.html',
-  styleUrls: ['./addpost.component.css']
+  styleUrls: ['./addpost.component.css'],
 })
-export class AddPostComponent {
-  post = {
-    image: '',
+export class AddPostComponent implements OnInit {
+  public post = {
     title: '',
-    text: ''
+    image: '',
+    text: '',
   };
-
 
   constructor(private dataService: DataService, public router: Router) {
   }
 
+  ngOnInit() {
+  }
 
-  addPost() {
-    this.dataService.addPost(this.post).subscribe((result) => {
+  create() {
+    this.dataService.add(this.post).subscribe((result) => {
       return result;
     });
-    this.router.navigate(['/']);
+    this.router.navigate(['/blog']);
   }
 }

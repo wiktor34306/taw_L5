@@ -14,11 +14,11 @@ export class DataService {
   }
 
   getById(id: string) {
-    return this.http.get(this.url + '/api/posts/' + id);
+    return this.http.get(this.url + 'api/post/' + id);
   }
 
-  addPost(data: any) {
-    return this.http.post(this.url + '/api/posts' , data);
+  add(data: any) {
+    return this.http.post(this.url + 'api/post' , data);
   }
 
 }
